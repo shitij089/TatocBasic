@@ -65,7 +65,7 @@ public class BasicTatoc {
 				    
 				    driver.switchTo().window(tabs2.get(1));
 				    
-				    driver.findElement(By.id("name")).sendKeys("shitij");  
+				    driver.findElement(By.id("name")).sendKeys("Shitij Khanna");  
 				    
 				    Thread.sleep(1000);
 				    
@@ -79,11 +79,21 @@ public class BasicTatoc {
 				    
 				    driver.findElement(By.linkText("Generate Token")).click();
 				    
-				    Cookie Token1 = new Cookie("Token",  "String");
+				    String value = driver.findElement(By.id("token")).getText();
+				    
+				    System.out.println(value);
+				    
+				    String[] tok = value.split(":");
+				    
+				    value = (value.substring(7));
+				    
+				    System.out.println(value);
+				    
+				    Cookie Token1 = new Cookie("Token", value );
 				    
 					driver.manage().addCookie(Token1);
 				    
-					driver.manage().getCookies();
+					//driver.manage().getCookies();
 				    
 					driver.findElement(By.linkText("Proceed")).click();
 	
